@@ -1,0 +1,233 @@
+!!!! проще гридом    (нужно сделать адаптивом
+Grid адаптацией
+
+.category__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 12px;
+    grid-row-gap: 15px;
+}
+
+.category__item {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #f1f1f1;
+    max-width: 218px;
+    cursor: pointer;
+    transform: scale(1);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1),
+        0px 10px 10px 0px rgba(0, 0, 0, 0.09), 0px 22px 13px 0px rgba(0, 0, 0, 0.05),
+        0px 39px 16px 0px rgba(0, 0, 0, 0.01), 0px 61px 17px 0px rgba(0, 0, 0, 0);
+
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+@media (max-width: 1440px) {
+    .category__items {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .category__items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .category__items {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 10px;
+    }
+
+    .category__item {
+        max-width: 100%;
+        min-width: 170px;
+    }
+}
+
+@media (max-width: 580px) {
+    .category__items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 388px) {
+    .category__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .category__item {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 350px) {
+     .classification__items {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .classification__inner-wrapper {
+        align-items: center;
+    }
+    .category__inner-wrapper{ //моиму контейнеру задать 
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+flex уже с адаптивом 
+
+.сlassification__inner-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Равномерное распределение пространства между элементами */
+  margin: -8px; /* Удаляем отступы с начала и конца контейнера */
+}
+
+.сlassification__inner-item {
+  flex: 0 0 calc(25% - 16px); /* Задаем фиксированную ширину с учетом паддинга */
+  transform: scale(1);
+  transition: all 2.2s;
+  margin-bottom: 42px !important;
+  padding: 8px;
+  box-sizing: border-box; /* Учитываем внутренний отступ в ширине элементов */
+}
+
+.сlassification__image {
+  width: 100%;
+  max-width: 330px;
+}
+
+
+@media (max-width: 1450px) {
+  .сlassification__inner-items {
+    justify-content: start;
+  }
+   .сlassification__inner-item {
+    flex: 0 0 calc(33% 0px); /* Задаем фиксированную ширину с учетом паддинга */
+  }
+}
+
+@media (max-width: 768px) {
+  .сlassification__inner-items {
+      justify-content: space-between;
+  }
+   .сlassification__inner-item {
+    flex: 0 0 calc(50% - 0px); /* Задаем фиксированную ширину с учетом паддинга */
+  }
+
+}
+
+
+
+
+html (карточка товара Оселя )
+
+
+
+
+    <div class="category__items">
+                            <?php foreach ($products as $product) { ?>
+
+                            <div class="category__item">
+                                <div class="image"><a href="<?php echo $product['href']; ?>"><img class='category__img'
+                                            src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"
+                                            title="<?php echo $product['name']; ?>" class="img-responsive" width="160px"
+                                            height="143px" /></a></div>
+                                <div class="category__caption">
+                                    <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                                    </h4>
+                                    <p><?php echo $product['description']; ?></p>
+                                    <?php if ($product['rating']) { ?>
+                                    <div class="rating">
+                                        <?php for ($i = 1; $i <= 5; $i++) { ?>
+                                        <?php if ($product['rating'] < $i) { ?>
+                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                        <?php } else { ?>
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+                                                class="fa fa-star-o fa-stack-2x"></i></span>
+                                        <?php } ?>
+                                        <?php } ?>
+                                    </div>
+                                    <?php } ?>
+
+                                </div>
+                                <div class="bottom-caption">
+                                    <?php if ($product['price']) { ?>
+                                    <div class="price">
+                                        <?php if (!$product['special']) { ?>
+                                        <?php echo $product['price']; ?>
+                                        <?php } else { ?>
+                                        <span class="price-new"><?php echo $product['special']; ?></span>
+                                        <?php } ?>
+                                        <?php if ($product['tax']) { ?>
+                                        <span class="price-tax"><?php echo $text_tax; ?>
+                                            <?php echo $product['tax']; ?></span>
+                                        <?php } ?>
+                                    </div>
+                                    <?php } ?>
+                                    <div class="button-buy">
+                                        <button type="button"
+                                            onclick="cart.add('<?php echo $product['product_id']; ?>');"
+                                            aria-label="<?php echo $button_cart; ?>">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M22.719 4.07808C22.4377 3.74043 22.0854 3.46887 21.6873 3.28269C21.2892 3.0965 20.8549 3.00026 20.4154 3.0008H4.24312L4.20111 2.6497C4.11514 1.91993 3.76438 1.24706 3.21534 0.758679C2.6663 0.270295 1.95715 0.000341884 1.22232 0L1.00027 0C0.734978 0 0.480557 0.105385 0.292971 0.292971C0.105385 0.480557 0 0.734978 0 1.00027C0 1.26555 0.105385 1.51997 0.292971 1.70756C0.480557 1.89515 0.734978 2.00053 1.00027 2.00053H1.22232C1.46732 2.00056 1.70379 2.09051 1.88687 2.25331C2.06996 2.41612 2.18692 2.64045 2.21559 2.88376L3.59195 14.5869C3.73484 15.804 4.31962 16.9263 5.2353 17.7407C6.15097 18.5552 7.3338 19.0051 8.55927 19.005H19.005C19.2703 19.005 19.5247 18.8997 19.7123 18.7121C19.8999 18.5245 20.0053 18.2701 20.0053 18.0048C20.0053 17.7395 19.8999 17.4851 19.7123 17.2975C19.5247 17.1099 19.2703 17.0045 19.005 17.0045H8.55927C7.94016 17.0028 7.33674 16.8096 6.83175 16.4514C6.32675 16.0933 5.94489 15.5877 5.73852 15.004H17.6617C18.8343 15.0041 19.9696 14.5921 20.8694 13.8401C21.7691 13.0881 22.376 12.0439 22.584 10.8899L23.3692 6.53473C23.4476 6.10262 23.43 5.65857 23.3176 5.23403C23.2052 4.80948 23.0009 4.41485 22.719 4.07808ZM21.4057 6.17964L20.6195 10.5348C20.4946 11.228 20.1298 11.8551 19.5891 12.3065C19.0483 12.7578 18.366 13.0045 17.6617 13.0034H5.42044L4.47919 5.00133H20.4154C20.5623 5.00045 20.7077 5.03196 20.8411 5.09361C20.9744 5.15526 21.0926 5.24554 21.1871 5.35803C21.2817 5.47052 21.3503 5.60246 21.388 5.74446C21.4258 5.88646 21.4318 6.03504 21.4057 6.17964Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M7.00187 24.0065C8.10673 24.0065 9.0024 23.1108 9.0024 22.006C9.0024 20.9011 8.10673 20.0054 7.00187 20.0054C5.89701 20.0054 5.00134 20.9011 5.00134 22.006C5.00134 23.1108 5.89701 24.0065 7.00187 24.0065Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M17.0045 24.0065C18.1094 24.0065 19.005 23.1108 19.005 22.006C19.005 20.9011 18.1094 20.0054 17.0045 20.0054C15.8996 20.0054 15.004 20.9011 15.004 22.006C15.004 23.1108 15.8996 24.0065 17.0045 24.0065Z"
+                                                    fill="white" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php } ?>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

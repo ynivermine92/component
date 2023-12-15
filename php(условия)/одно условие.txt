@@ -1,0 +1,16 @@
+когда цикле нужно вывести только одному что то  !!!!!
+
+1 нужно узнать айдишку 
+  <pre> <?php print_r($options) ?> </pre>    там где опшинс нужно найти адишку 
+
+
+
+
+
+     <?php if($option['product_option_id'] == '228') { ?>
+                  <label class="product__control-label "><?php echo $option['name']; ?>
+                      <div class="product__size">Розмірна сітка</div>
+                    </label>
+                    
+                    <pre> <?php print_r($options) ?> </pre>
+                  <?php } ?>

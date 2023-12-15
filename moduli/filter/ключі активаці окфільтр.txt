@@ -1,0 +1,7 @@
+Ключ активації модуля представлений нижче:
+
+Основний домен: beautycode-cosmetics.com.ua
+acbf8ab2e13f34f3f8bcced54b05831e
+_____________________________________
+Тестовий домен: beautycode.start-site.com.ua
+14d478e1398007d47f88c4f5ec5961d7

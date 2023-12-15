@@ -1,0 +1,14 @@
+вывод в тпл катигорий
+
+
+    <?php if ($categories) { ?>
+        <ul class="categories__items">
+            <?php foreach ($categories as $category) { ?>
+            <li class="categories__item">
+                <a class="categories__item-link"
+                    href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?>
+                </a>
+            </li>
+            <?php } ?>
+        </ul>
+        <?php } ?>

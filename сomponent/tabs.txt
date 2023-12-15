@@ -1,0 +1,97 @@
+tabs
+
+
+  <ul class="user__menu-items">
+        <li class="user__menu-item">Засоби для знебарвлення
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+        <li class="user__menu-item">Окисники 
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+        <li class="user__menu-item">Прямі пігменти
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+        <li class="user__menu-item">Технічні продукти
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+        <li class="user__menu-item">Тонуючі маски та шампуні
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+        <li class="user__menu-item">Фарби для волосся
+          <ul class="catalog-menu-sub">
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+            <li class="user__menu-item"> <a class="user__menu-link" href="#">Засоби для знебарвлення
+              </a></li>
+          </ul>
+        </li>
+    </ul>
+    </div>
+  </div>
+
+
+
+
+  <script>
+
+    let menuItem = document.querySelectorAll('.user__menu-item'); 
+        for(let i = 0; i <menuItem.length;i++){
+          menuItem[i].addEventListener('click',()=>{
+            menuItem[i].classList.toggle('active')
+          })
+        }
+
+    
+      
+
+
+  </script>
+
+
+
+
+
+
+
+.user__menu-item.active ul.catalog-menu-sub{
+    display: block;
+    max-width: 320px;
+    width: 100%;
+  }

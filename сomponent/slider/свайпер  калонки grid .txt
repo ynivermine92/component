@@ -1,0 +1,54 @@
+<section class="benefit"> 
+  <div class="swiper swiper<?php echo $module; ?>" >
+    <div class="swiper-wrapper">
+      <?php foreach ($banners as $banner) { ?>
+        <div class="swiper-slide">
+          <?php if ($banner['link']) { ?>
+            <a href="<?php echo $banner['link']; ?>">
+              <img class="slider-top__images img-responsive" src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>" />
+            </a>
+          <?php } else { ?>
+            <img class="slider-top__images img-responsive" src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>" />
+          <?php } ?>
+       
+        </div>
+      <?php } ?>
+
+
+    </div>
+      <div class="top-slider__inner">
+        <a class="top-slider__arrow"  href="<?php echo $category; ?>">
+       
+          <svg class="top-slider__arrow-image">
+              <use xlink:href="image/arrow/arrow.svg#arrow"></use>
+          </svg>
+        </a>
+      </div>
+  </div>
+
+</section>
+<style>
+.swiper{
+  max-width: 1450px;
+  margin: 0 auto;
+  height: 240px;
+}
+.swiper .swiper-slide{
+  width: auto;
+      display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
+<script>
+let swiper = new Swiper(".swiper", {
+      slidesPerView: 3,
+      grid: {
+        rows: 2,
+      },
+      spaceBetween: 30,
+});
+
+
+</script>

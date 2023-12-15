@@ -1,0 +1,8 @@
+1 скинуть  папку  там где лежит комен js
+2 потключить хедер тпл в линку        <script src="catalog/view/javascript/dynamic_adapt.js" type="text/javascript" defer></script>
+
+записать тот класс который я хочу перенести, какой класс  data-da=".header__inner-bottom, 992    
+
+
+
+

@@ -1,0 +1,408 @@
+      <nav id="menu" class="navbar-mob">
+            <button class="header__burger-btn" href="javascript:void(0);">
+              <svg class="mob-menu__burger">
+                <use xlink:href="image/header/burger.svg#burger"></use>
+              </svg>
+            </button>
+
+            <div class="header__burger-menu-wrap">
+              <div class="header__burger-menu">
+                <div class="header__burger-close-wrap">
+                  <a class="header__burger-close" href="javascript:void(0);">
+                    <svg class="mobile-menu__clouse-svg" data-v-00947247="" data-v-1d149268="" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16">
+                      <path data-v-00947247="" d="M1 0.15147L0.151472 1L7.08182 7.93035L0.151472 14.8607L1 15.7092L7.93035 8.77888L14.8607 15.7092L15.7092 14.8607L8.77888 7.93035L15.7092 0.999998L14.8607 0.15147L7.93035 7.08182L1 0.15147Z"></path>
+                    </svg>
+                  </a>
+                  <div class="navbar__wrapper">
+                    <ul class="nav navbar-nav nav__items">
+                      <?php foreach ($categories as $category) { ?>
+                        <?php if ($category['children']) { ?>
+                          <li class="dropdown nav__item"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle nav__item-link" data-toggle="dropdown"><?php echo $category['name']; ?>
+                              <svg class="languages__item-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                                <path d="M4.99998 5.9166C4.88502 5.91715 4.77111 5.89472 4.66493 5.85065C4.55874 5.80657 4.46244 5.74174 4.38165 5.65994L0.333317 1.5766C0.226695 1.41215 0.17837 1.21667 0.196089 1.02148C0.213808 0.826294 0.296544 0.642707 0.431037 0.500144C0.565529 0.357582 0.74399 0.264301 0.937815 0.235252C1.13164 0.206203 1.32961 0.243068 1.49998 0.339938L4.99998 3.83994L8.49998 0.339938C8.67036 0.243068 8.86833 0.206203 9.06215 0.235252C9.25598 0.264301 9.43444 0.357582 9.56893 0.500144C9.70342 0.642707 9.78616 0.826294 9.80388 1.02148C9.8216 1.21667 9.77327 1.41215 9.66665 1.5766L5.58332 5.65994C5.42872 5.81676 5.22005 5.90858 4.99998 5.9166Z"></path>
+                              </svg>
+                            </a>
+
+                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                              <ul class="nav__items-one">
+                                <?php foreach ($children as $child) { ?>
+                                  <li class="nav__items-sub"><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                                <?php } ?>
+                              </ul>
+                            <?php } ?>
+
+                          </li>
+                        <?php } else { ?>
+                          <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                        <?php } ?>
+                      <?php } ?>
+                    </ul>
+                  </div>
+                </div>
+                <ul class="header__burger-menu-list">
+                </ul>
+              </div>
+            </div>
+
+          </nav>
+
+
+
+
+
+
+
+    <style>
+      .logo img {
+        max-width: 156px;
+      }
+
+      .languages__item-arrow {
+        margin-left: 4px;
+        margin-top: 2px;
+      }
+
+      #menu .dropdown-inner a {
+        font-family: 'Gilroy';
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .header__catalog-item {
+        margin-top: 10px;
+      }
+
+      .nav__item.open .languages__item-arrow {
+        transform: rotate(180deg);
+        transition: all 0.3s;
+      }
+
+      .languages__item-arrow {
+        transform: rotate(0deg);
+        transition: all 0.3s;
+      }
+
+      .navbar-mob {
+        color: black;
+      }
+
+      .mobile-menu__clouse-svg {
+        stroke: #21313f;
+        height: 16px;
+        width: 16px;
+        transition: all 0.3s;
+      }
+
+      .mobile-menu__clouse-svg:hover {
+        stroke: #C20000;
+        transition: all 0.3s;
+      }
+
+      .header__burger-btn {
+        display: block;
+        position: unset;
+      }
+
+      .mob-menu {
+        display: none;
+      }
+
+      .mob-menu__burger {
+        width: 70px;
+        height: 46px;
+        cursor: pointer;
+      }
+
+      #menu .nav>li>a {
+        font-size: 20px;
+        font-family: 'Gilroy';
+        font-weight: 500;
+      }
+
+      #menu .nav>li>a:hover,
+      #menu .nav>li.open>a {
+        background: transparent;
+      }
+
+      .header__box {
+        display: flex;
+        align-items: center;
+      }
+
+      header {
+        background: rgba(0, 0, 0, 0.29);
+        backdrop-filter: blur(10px);
+        height: 96px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        align-items: center;
+        display: flex;
+      }
+
+      .header__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #menu .nav>li:hover {
+        border-bottom: 1px solid #C20000;
+      }
+
+      .navbar-nav>li>a {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+
+      .logo__image {
+        margin-top: -22px;
+      }
+
+      .header__burger-btn {
+        display: none;
+      }
+
+      @media (max-width: 1460px) {
+        #menu .nav>li>a {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 1275px) {
+        .nav__items-sub {
+          color: black;
+        }
+
+        .nav__items-one {
+          display: none;
+        }
+        .dropdown.open .nav__items-one {
+          padding: 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        .languages__item-arrow {
+          width: 10px;
+          height: 10px;
+          right: 0;
+          top: 14px;
+          fill: black;
+        }
+
+        #menu .dropdown-inner a {
+          margin-top: 10px;
+          font-family: 'Gilroy';
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        .dropdown-menu {
+          text-align: center;
+        }
+
+        .nav__item-link {
+          display: flex;
+          justify-content: center;
+        }
+
+        .nav__items {
+          align-items: center;
+        }
+
+        .nav__item {
+          margin-top: 22px;
+        }
+
+        .nav__items {
+          display: flex;
+          flex-direction: column;
+          margin: 37px 16px 50px;
+          text-align: center;
+        }
+
+        header #menu .nav>li {
+          border-bottom: none !important;
+        }
+
+        #menu .nav>li {
+          margin-top: 20px;
+        }
+
+        #menu .nav>li>a {
+          font-size: 16px;
+          color: black;
+          transition: all 0.3s;
+        }
+
+        #menu .nav>li>a:hover {
+          color: #C20000;
+          transition: all 0.3s;
+        }
+
+        .header__box {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .navbar {
+          display: none;
+        }
+
+        .header__burger-btn {
+          display: block;
+        }
+
+        .header__burger-menu-item {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 650px) {
+        .languages__btn {
+          border-radius: 5px;
+        }
+
+        .aсtion-search {
+          border-radius: 5px;
+        }
+
+        .languages__btn {
+          margin-right: 16px;
+        }
+
+        header {
+          background: rgba(0, 0, 0, 0.59);
+          backdrop-filter: blur(5px);
+        }
+
+        .mob-menu__burger {
+          height: 27px;
+          width: 27px;
+        }
+
+        .languages__btn {
+          width: 38.031px;
+          height: 24.992px;
+        }
+
+        .logo img {
+          max-width: 66px;
+        }
+
+        .logo__image {
+          margin-top: 0;
+        }
+      }
+
+      body {
+        background-color: #21313f;
+      }
+
+      .lock body {
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+      }
+
+      button {
+        margin-left: auto;
+        display: block;
+        color: inherit;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .header__burger-menu.active {
+        transform: translateX(0);
+        position: unset;
+      }
+
+      .header__burger-menu {
+        position: fixed;
+        max-width: 100%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        z-index: 9999;
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-flow: column;
+        overflow: auto;
+        transform: translateX(-100%);
+      }
+
+      .header__burger-menu-list {
+        margin: 37px 16px 50px;
+      }
+
+      .header__burger-menu-item {
+        margin-top: 22px;
+        padding: 0 16px;
+      }
+
+      .header__burger-close-wrap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header__burger-close {
+        padding: 20px;
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .header__burger-menu-link {
+        color: #21313f;
+        font-size: 18px;
+      }
+
+      .header__burger-menu-wrap.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000000b8;
+        display: block;
+        z-index: 110;
+      }
+
+      .header__item-link {
+        margin: auto 16px 60px;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        color: #21313f;
+        font-size: 18px;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        font-family: 'Gilroy';
+        font-weight: 500;
+        font-size: 16px;
+      }
+    </style>

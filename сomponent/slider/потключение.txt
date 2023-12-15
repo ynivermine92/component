@@ -1,0 +1,116 @@
+1 папку свайпер  скинуть       catalog / view / javascript ( cкинуть папку свайпер )
+2 котролере той той тпл которой хочу вывести  слайдер       
+		$this->document->addStyle('catalog/view/javascript/swiper/swiper-bundle.min.css');
+		$this->document->addScript('catalog/view/javascript/swiper/swiper-bundle.min.js');
+
+
+3 интслизировать тпл 
+
+ 
+
+ 
+html
+	     <div class="swiper-topCategory">
+            <div class="swiper-wrapper">
+              <!-- <div class="list-category"> -->
+                <?php foreach ($categories as $category) { ?>
+                  <div class="swiper-slide">
+                    <div class="item-category-slide">
+                      <div class="img-category-slide"><img src="<?php echo $category['image'] ?>"></div>
+                      <div class="name-category-slide"><?php echo $category['name'] ?></div>
+                      <div class="link-category-slide"><a href="<?php echo $category['href'] ?>"><?php echo $text_enter; ?></a></div>
+                    </div>
+                  </div>
+                <?php } ?>
+              <!-- </div>  -->
+            </div>
+            <div class="topCategory-button-next"> </div>
+            <div class="topCategory-button-prev"></div>
+            <div class="topCategory-button-pagination"></div>
+          </div>
+
+
+
+<style>
+/* pagination */
+.swiper-pagination-bullet-active {
+    background: #45BC1B;
+    border: 2px solid transparent !important;
+}
+
+.topCategory-button-pagination{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    top: -30px;
+    z-index: 10;
+    position: relative;
+}
+
+.swiper-pagination-bullet{
+    z-index: 10;
+    left: 50%;
+    right: 50%;
+    border-radius:50%; 
+    height: 8px;
+    width: 8px;
+    border: 2px solid #E6E6E6;
+}
+.swiper-slide .swiper-slide-active{
+    background-color: red;
+}
+/* pagination */
+
+/* slider btn*/
+.swiper-topCategory {
+    overflow: hidden;
+}
+
+.topCategory-button-next,
+.topCategory-button-prev {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    top: 42%;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.topCategory-button-next {
+    right: 0;
+    right: -24px;
+}
+
+.topCategory-button-prev {
+    left: 0;
+    left: -24px;
+}
+/* slider btn*/
+.swiper-topCategory {
+    position: relative;
+}
+</style>
+
+
+
+<script>
+  let topCategory = new Swiper(".swiper-topCategory", {
+    slidesPerView: 4,
+
+    pagination: {
+      el: ".topCategory-button-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".topCategory-button-next",
+      prevEl: ".topCategory-button-prev",
+    },
+  });
+</script>
+
+

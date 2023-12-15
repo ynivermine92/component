@@ -1,0 +1,17 @@
+    <!--breadcrumbs-->
+    <div class="breadcrumbs">
+      <ul class="breadcrumbs__list">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+          <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+            <span class="breadcrumbs__item-span"></span>
+            <span class="breadcrumbs__item-mob">\</span>
+          </li>
+        <?php } ?>
+      </ul>
+    </div>
+    <!--breadcrumbs-->
+
+
+
+
+

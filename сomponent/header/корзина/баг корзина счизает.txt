@@ -1,0 +1,35 @@
+В файле:
+\catalog\controller\common\cart.php
+
+комментируем код (строка 59):
+    //$data['text_items'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
+
+и под ним пишем:
+    $data['text_items'] = $this->cart->countProducts();
+
+В файле:
+\catalog\controller\checkout\cart.php
+
+комментируем код (строка 400):
+        //$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
+
+и под ним пишем:
+$json['total'] = $this->cart->countProducts();
+
+
+
+! когда баг с корзиной   при добавлении продукта исчизает корзина
+файл
+C:\ynivermine\beaunty-code\start-site.com.ua\beautycode\catalog\view\theme\default\template\product\product.tpl
+(json['success']
+ вставить код  в  (строка 473):   $('#cart > button').html('<span id="cart-total">' + json['total'] + ' </span><svg class="header__cart-svg"> <use xlink:href="image/header/cart.svg#cart"></use> </svg>');
+
+// Cart add remove functions искать тут
+
+и в файл \catalog\view\javascript\common.js
+(строка 164):	$('#cart > button').html$('<span id="cart-total">' + json['total'] + ' </span><svg class="header__cart-svg"> <use xlink:href="image/header/cart.svg#cart"></use> </svg>');
+
+
+
+
+			

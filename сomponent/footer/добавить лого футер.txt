@@ -1,0 +1,104 @@
+захожу  и создаю поля для вода 
+admin\view\template\setting\setting.tpl
+копирую оригинал
+      поиске ищу config_logo
+
+     <div class="form-group">
+          <label class="col-sm-2 control-label" for="input-logo"><?php echo $entry_logo; ?></label>
+          <div class="col-sm-10"><a href="" id="thumb-logo" data-toggle="image" class="img-thumbnail"><img src="<?php echo $logo; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+          <input type="hidden" name="config_logo" value="<?php echo $config_logo; ?>" id="input-logo" />
+         </div>
+      /div>
+и меняю переменые на  уникальные 
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="input-logo2"><?php echo $entry_logo2; ?></label>
+        <div class="col-sm-10"><a href="" id="thumb-logo2" data-toggle="image" class="img-thumbnail"><img src="<?php echo $logo2; ?>" alt="" title="" data-placeholder="<?php echo $placeholder2; ?>" /></a>
+        <input type="hidden" name="config_logo2" value="<?php echo $config_logo2; ?>" id="input-logo2" />
+        </div>
+     </div>
+
+дальше потягывает сервера  текст для оторбражения 
+путь  admin\controller\setting\setting.php
+поиск entry_logo
+      копируем $data['entry_logo'] = $this->language->get('entry_logo');
+      и создаём ещё одну $data['entry_logo2'] = $this->language->get('entry_logo2');
+   		
+!создаём переменую для записи базу данны 
+дальше в этом же файле ищем 
+  поиске config_logo 
+	копируем 	if (isset($this->request->post['config_logo'])) {
+			$data['config_logo'] = $this->request->post['config_logo'];
+		} else {
+			$data['config_logo'] = $this->config->get('config_logo');
+		}
+
+		if (isset($this->request->post['config_logo']) && is_file(DIR_IMAGE . $this->request->post['config_logo'])) {
+			$data['logo'] = $this->model_tool_image->resize($this->request->post['config_logo'], 100, 100);
+		} elseif ($this->config->get('config_logo') && is_file(DIR_IMAGE . $this->config->get('config_logo'))) {
+			$data['logo'] = $this->model_tool_image->resize($this->config->get('config_logo'), 100, 100);
+		} else {
+			$data['logo'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+	и создаём ещё одну у никальными классами 
+
+		if (isset($this->request->post['config_logo2'])) {
+			$data['config_logo2'] = $this->request->post['config_logo2'];
+		} else {
+			$data['config_logo2'] = $this->config->get('config_logo2');
+		}
+
+		if (isset($this->request->post['config_logo2']) && is_file(DIR_IMAGE . $this->request->post['config_logo2'])) {
+			$data['logo2'] = $this->model_tool_image->resize($this->request->post['config_logo2'], 100, 100);
+		} elseif ($this->config->get('config_logo2') && is_file(DIR_IMAGE . $this->config->get('config_logo2'))) {
+			$data['logo2'] = $this->model_tool_image->resize($this->config->get('config_logo2'), 100, 100);
+		} else {
+			$data['logo2'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		}
+
+
+
+
+создаём переменую язиковом файле 
+путь admin\language\uk-ua\setting\setting.php
+	поиске ищем entry_logo
+$_['entry_logo'] = 'Логотип';
+и создаём ещё одну у никальными классами	
+$_['entry_logo2'] = 'Логотип футер';
+
+дальше вывести переменые картинки на сайт 
+
+путь catalog\controller\common\footer.php
+поиск $data['category']
+после ниё втавляем 
+	if ($this->request->server['HTTPS']) {
+			$server = $this->config->get('config_ssl');
+		} else {
+			$server = $this->config->get('config_url');
+		}		
+if (is_file(DIR_IMAGE . $this->config->get('config_logo2'))) {
+			$data['logo2'] = $server . 'image/' . $this->config->get('config_logo2');
+		} else {
+			$data['logo2'] = '';
+		}
+
+потключаем сылку 
+путь catalog\controller\common\footer.php
+поиск $data['category']
+находим $data['category'] = $this->url->link('product/category');
+поле неё вставляем 
+$data['home'] = $this->url->link('common/home');
+
+выводим переменые тпл футер 
+  <a class="footer__logo" href="<?php echo $home; ?>">
+        <img src="<?php echo $logo2; ?>" class="footer__logo-images" alt="">
+      </a>
+
+
+
+
+перезагрузить модификатор 
+
+
+
+

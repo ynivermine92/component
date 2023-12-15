@@ -1,0 +1,35 @@
+закиду корень папки сайта заменить все            ((розтягывает картинку по блоку))
+
+catalog\controller\extension\module\ фалй где нужно кроп сайз
+
+ищу model_tool_image->resize 
+
+именяю    resize на  cropsize
+
+
+было
+
+		foreach ($results as $result) {
+			if (is_file(DIR_IMAGE . $result['image'])) {
+				$data['banners'][] = array(
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => 'image/'resize($result['image'])
+					
+				);
+			}
+		}
+
+с стать должно
+
+
+foreach ($results as $result) {
+			if (is_file(DIR_IMAGE . $result['image'])) {
+				$data['banners'][] = array(
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => 'image/'.cropsize($result['image'])
+					
+				);
+			}
+		}

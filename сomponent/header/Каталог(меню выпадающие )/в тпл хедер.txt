@@ -1,0 +1,489 @@
+навигация 
+ <?php if ($menus) { ?>
+                <div class="container">
+                    <nav id="menu" class="navbar">
+                        <div class="nav__wrapper">
+                            <ul class="nav navbar-nav">
+                                <?php foreach ($menus as $category) { ?>
+                                <?php if ($category['children']) { ?>
+                                <li class="dropdown"><a class="nav__link" href="<?php echo $category['href']; ?>"
+                                        class="dropdown-toggle"
+                                        data-toggle="dropdown"><?php echo $category['name']; ?></a>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-inner">
+                                            <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                            <ul class="list-unstyled">
+                                                <?php foreach ($children as $child) { ?>
+                                                <li><a
+                                                        href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                </li>
+                                                <?php } ?>
+                                            </ul>
+                                            <?php } ?>
+                                        </div>
+                                        <a href="<?php echo $category['href']; ?>"
+                                            class="see-all"><?php echo $text_all; ?>
+                                            <?php echo $category['name']; ?></a>
+                                    </div>
+                                </li>
+                                <?php } else { ?>
+                                <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+                                <?php } ?>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </nav>
+
+
+
+
+каталог 
+            <!--catalog-menu -->
+            <div class="catalog__menu-box">
+                <div class="container">
+                    <div class="catalog-menu__wraper">
+                        <div class="catalog-menu__wraper-box">
+                            <nav id="menu" class="navbar">
+                                <div class="catalog-menu__inner--lvl-1">
+                                    <ul class="catalog-menu__items--lvl-1">
+                                        <?php foreach ($categories as $category) { ?>
+                                        <?php if ($category['children']) { ?>
+                                        <div class="catalog-menu__box--lvl-1">
+                                            <li class="catalog-menu__item--lvl-1">
+                                                <a href="<?php echo $category['href']; ?>"
+                                                    class="catalog-menu__link--lvl-1 dropdown-toggle"
+                                                    data-toggle="dropdown"><?php echo $category['name']; ?>
+                                                    <svg class="catalog-menu__svg--lvl-1"
+                                                        xmlns="http://www.w3.org/2000/svg" width="9" height="16"
+                                                        viewBox="0 0 9 16" fill="none">
+                                                        <path d="M1 1L7.75552 7.75552L1 14.511" stroke="#848680"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </a>
+                                                <div class="catalog-menu__inner-wrapper--lvl-2">
+                                                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+                                                    <ul class="catalog-menu__items--lvl-2">
+                                                        <?php foreach ($children as $child) { ?>
+                                                        <li class="catalog-menu__item--lvl-2"><a
+                                                                class="catalog-menu__link--lvl-2"
+                                                                href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
+                                                        </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                    <?php } ?>
+                                                </div>
+                                            </li>
+                                        </div>
+                                        <?php } else { ?>
+                                        <div class="catalog-menu__box--lvl-1">
+                                            <li class="catalog-menu__item--lvl-1"><a class="catalog-menu__link--lvl-1"
+                                                    href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                                            </li>
+                                        </div>
+                                        <?php } ?>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--catalog-menu -->
+                    
+
+
+
+
+
+
+
+
+  /*menu catalog*/
+    .catalog__menu-box .dropdown-backdrop {
+        display: none;
+    }
+
+    .catalog-menu__link--lvl-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .catalog-menu__item--lvl-1.open a:hover {
+        color: #1E1E1E;
+        font-family: "Manrope";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+
+    .catalog-menu__link--lvl-1:hover {
+        transition: all 0.5s;
+        color: #1E1E1E;
+        font-family: "Manrope";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .catalog-menu__link--lvl-1 {
+        color: #1E1E1E;
+        font-family: "Manrope";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+    }
+
+    .catalog-menu__items--lvl-2 {
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px;
+        row-gap: 10px;
+        padding: 34px 58px 57px 40px;
+        max-height: 430px;
+        overflow-x: hidden;
+    }
+
+
+    .catalog-menu__item--lvl-2 {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .catalog-menu__inner-wrapper--lvl-2 {
+
+        height: 530px;
+        top: 0;
+        display: none;
+        position: absolute;
+        left: 20%;
+        border-radius: 15px;
+        background: #FFF;
+        width: 625px;
+        box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.10), 0px 21px 21px 0px rgba(0, 0, 0, 0.09), 0px 48px 29px 0px rgba(0, 0, 0, 0.05), 0px 85px 34px 0px rgba(0, 0, 0, 0.01), 0px 133px 37px 0px rgba(0, 0, 0, 0.00);
+    }
+
+    .catalog-menu__item--lvl-1.open {
+        display: flex;
+    }
+
+    .catalog-menu__item--lvl-1.open .catalog-menu__link--lvl-1 {
+        color: #1E1E1E;
+        font-family: "Manrope";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.5s;
+    }
+
+    .catalog-menu__item--lvl-1.open .catalog-menu__svg--lvl-1 path {
+        stroke: #000;
+    }
+
+
+
+
+    .catalog-menu__item--lvl-1.open .catalog-menu__inner-wrapper--lvl-2 {
+        display: block;
+        left: 102%;
+    }
+
+    .catalog__menu-box {
+        position: relative;
+    }
+
+    .catalog-menu__wraper.active {
+        position: absolute;
+        left: 0;
+        z-index: 9999;
+        overflow: hidden;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        width: 100%;
+        /*     max-width: 1072px; */
+        height: 530px;
+        top: 44px;
+        border-radius: 15px;
+
+
+    }
+
+    .catalog-menu__wraper {
+        z-index: -1;
+    }
+
+    .catalog-menu__inner--lvl-1 {
+        height: 530px;
+        position: absolute;
+        left: 0;
+        border-radius: 15px;
+        background: #FFF;
+        box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.10), 0px 21px 21px 0px rgba(0, 0, 0, 0.09), 0px 48px 29px 0px rgba(0, 0, 0, 0.05), 0px 85px 34px 0px rgba(0, 0, 0, 0.01), 0px 133px 37px 0px rgba(0, 0, 0, 0.00);
+    }
+
+
+
+
+
+    .catalog-menu__box--lvl-1 {
+        display: flex;
+        justify-content: space-between;
+        background: #FFF;
+        align-items: center;
+        width: 100%;
+        margin: 13px 0;
+
+    }
+
+    .catalog-menu__items--lvl-1 {
+        display: none;
+        padding: 33px 70px 57px 70px;
+        overflow: scroll;
+        max-height: 440px;
+        overflow-x: hidden;
+        height: inherit;
+    }
+
+    .catalog-menu__items--lvl-1.active {
+        display: block;
+    }
+
+    .catalog-menu__items--lvl-1::-webkit-scrollbar-thumb,
+    .catalog-menu__items--lvl-2::-webkit-scrollbar-thumb {
+        background-color: #15A74C;
+    }
+
+    .catalog-menu__items--lvl-1::-webkit-scrollbar,
+    .catalog-menu__items--lvl-2::-webkit-scrollbar {
+        width: 10px;
+    }
+
+
+
+    .catalog-menu__svg--lvl-1 {
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+
+
+
+    .catalog-menu__item--lvl-1 {
+        overflow: hidden;
+        width: 100%;
+        /*   display: flex; */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .catalog-menu__box--lvl-1:first-child {
+        margin: 0;
+    }
+
+    .catalog-menu__link--lvl-2 {
+        color: #1E1E1E;
+        font-family: 'Manrope';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 300;
+        transition: all 0.5s;
+    }
+
+    .catalog-menu__link--lvl-2:hover {
+        text-decoration: none;
+        transition: all 0.5s;
+        color: #1E1E1E;
+        font-family: 'Manrope';
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .catalog-menu__item--lvl-1.open:hover .catalog-menu__inner-wrapper--lvl-2 {
+        display: block;
+    }
+
+
+
+    .catalog-menu-inner {
+        position: relative;
+    }
+
+
+    .catalog-menu__link--lvl-1:focus {
+        color: #1E1E1E;
+        text-decoration: none;
+    }
+
+
+    @media (max-width: 1200px) {
+        .catalog-menu__items--lvl-2 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .catalog-menu__inner-wrapper--lvl-2 {
+            width: 100%;
+            max-width: 450px;
+        }
+
+ 
+    }
+@media (max-width: 992px) {
+
+        /*menu catalog*/
+        .catalog-menu__inner-wrapper--lvl-2 {
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .catalog-menu__item--lvl-1.open .catalog-menu__svg--lvl-1 {
+            transform: rotate(90deg);
+            transition: all 0.5s;
+        }
+
+        .catalog-menu__item--lvl-1:hover .catalog-menu__svg--lvl-1 path {
+            stroke: #000;
+            transition: all 0.5s;
+        }
+
+        .catalog-menu__wraper.active .catalog-menu__inner--lvl-1 {
+            width: 100%;
+        }
+
+        .catalog-menu__items--lvl-2 {
+            max-height: unset;
+            row-gap: 10px;
+            padding: 15px;
+        }
+
+        .catalog-menu__inner-wrapper--lvl-2 {
+            position: unset;
+            background: ghostwhite;
+        }
+
+        .catalog-menu__items--lvl-1 {
+            padding: 33px 20px 57px 20px;
+        }
+
+        .catalog-menu__item--lvl-1.open {
+            display: block;
+        }
+
+        .menu__inner-wrapper--lvl-2 {
+            height: auto;
+            top: 0;
+            display: none;
+            position: unset;
+            border-radius: 0px;
+            background: transparent;
+            box-shadow: transparent;
+        }
+
+        .catalog-menu__inner-wrapper--lvl-2 {
+            height: auto;
+            box-shadow: none;
+        }
+}
+
+
+
+    /*menu catalog*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script> 
+
+ /*menuKAtalog */
+    const cataologMenu = document.querySelector('.catalog-menu__wraper');
+    const cataolMenuLvl1 = document.querySelectorAll('.catalog-menu__item--lvl-1');
+    const cataolWrapperlvl2 = document.querySelector('.catalog-menu__inner-wrapper--lvl-2');
+    const cataoloBlock1lvl = document.querySelector('.catalog-menu__items--lvl-1');
+
+
+    cataolMenuLvl1.forEach((item, indx) => {
+
+
+        if (window.innerWidth < 992) {
+            item.removeEventListener('mouseover', () => {    /*    удаляться событе маус ховер  */
+                handleMouseover(item);
+
+                item.addEventListener('click', () => {
+                    item.classList.toggle('open');
+                    if (item.classList.contains('open')) {        /* сдесь при 992 ховер миняеться на событие клик */
+                        item.focus();           
+                    }
+                });
+
+            });
+
+
+        } else {
+            item.addEventListener('mouseover', () => {
+                item.classList.add('open');
+                cataolMenuLvl1.forEach((otherItem) => {
+                    if (otherItem !== item) {                           /* сдесь событие ховер */
+                        otherItem.classList.remove('open');
+                    }
+                });
+            });
+        }
+    });
+
+
+    cataologMenu.addEventListener('mouseleave', () => {
+        if (window.innerWidth < 992) {
+            cataolMenuLvl1.forEach((item) => {                    /*  сдесь удаляеться обытие я брать с блока ховер */
+                item.removeEventListener('mouseover', () => {
+                    item.classList.remove('open');
+                });
+            });
+        } else {
+            cataolWrapperlvl2.classList.remove('open');       /*  сдесь событе если убрал с блока закроеться меню 2 лвл */
+            cataolMenuLvl1.forEach((item) => {
+                item.classList.remove('open');
+            });
+        }
+    });
+
+
+    const btnCatalog = document.querySelector('.navbar__catalog-btn');
+    btnCatalog.addEventListener('click', () => {
+        cataoloBlock1lvl.classList.toggle('active')
+        if (cataoloBlock1lvl.classList.contains('active')) {                  /* собыите на кнопку клик окрыветься меню  */
+            cataologMenu.classList.add('active')
+        } else {
+            cataologMenu.classList.remove('active')
+        }
+    })
+
+    /*menuKAtalog */
+
+</script>
+
+
+
+

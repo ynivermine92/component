@@ -1,0 +1,155 @@
+<div class="aсtion-search" id="aсtion-search">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M7.76999 15.3C6.2807 15.3 4.82485 14.8584 3.58655 14.031C2.34825 13.2036 1.38311 12.0275 0.813181 10.6516C0.243253 9.27567 0.0941338 7.76164 0.38468 6.30096C0.675227 4.84029 1.39239 3.49857 2.44548 2.44548C3.49857 1.39239 4.84029 0.675227 6.30096 0.38468C7.76164 0.0941338 9.27567 0.243253 10.6516 0.813181C12.0275 1.38311 13.2036 2.34825 14.031 3.58655C14.8584 4.82485 15.3 6.2807 15.3 7.76999C15.3 8.75885 15.1052 9.73802 14.7268 10.6516C14.3484 11.5652 13.7937 12.3953 13.0945 13.0945C12.3953 13.7937 11.5652 14.3484 10.6516 14.7268C9.73802 15.1052 8.75885 15.3 7.76999 15.3ZM7.76999 1.74999C6.58331 1.74999 5.42327 2.10189 4.43657 2.76118C3.44988 3.42046 2.68084 4.35754 2.22672 5.45389C1.77259 6.55025 1.65377 7.75665 1.88528 8.92054C2.11679 10.0844 2.68824 11.1535 3.52735 11.9926C4.36647 12.8317 5.43556 13.4032 6.59945 13.6347C7.76334 13.8662 8.96974 13.7474 10.0661 13.2933C11.1624 12.8391 12.0995 12.0701 12.7588 11.0834C13.4181 10.0967 13.77 8.93668 13.77 7.74999C13.77 6.15869 13.1379 4.63257 12.0126 3.50735C10.8874 2.38213 9.36129 1.74999 7.76999 1.74999Z" fill="white" />
+    <path d="M17 17.75C16.9014 17.7504 16.8038 17.7312 16.7128 17.6934C16.6218 17.6557 16.5392 17.6001 16.47 17.53L12.34 13.4C12.2075 13.2578 12.1354 13.0697 12.1388 12.8754C12.1422 12.6811 12.2209 12.4958 12.3583 12.3583C12.4958 12.2209 12.6811 12.1422 12.8754 12.1388C13.0697 12.1354 13.2578 12.2075 13.4 12.34L17.53 16.47C17.6704 16.6106 17.7493 16.8012 17.7493 17C17.7493 17.1987 17.6704 17.3893 17.53 17.53C17.4607 17.6001 17.3782 17.6557 17.2872 17.6934C17.1961 17.7312 17.0985 17.7504 17 17.75Z" fill="white" />
+  </svg>
+</div>
+<div class="container-search">
+  <div id="close-search">
+    <svg class="d-block ft-icon-24 m-0 text-gray-500 darker-on-hover" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+    </svg>
+
+  </div>
+  <div id="search" class="input-group search">
+    <input type="text" name="search" value="" placeholder="Пошук" class="form-control input-lg">
+    <span class="input-group-btn">
+      <button type="button" class="btn-none"><img src="/image/template/ico-search.svg"></button>
+    </span>
+  </div>
+</div>
+
+<!-- CSS -->
+<style>
+  #search .input-lg::placeholder {
+    font-family: 'Gilroy';
+    font-weight: 400;
+  }
+
+  .input-lg {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+  }
+
+  .close-search {
+    top: 26px;
+  }
+
+  .search {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .header__search-svg {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 3.24px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .aсtion-search {
+    width: 70px;
+    height: 46px;
+    border-radius: 10px;
+    background: #C20000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+
+  header .aсtion-search {
+    cursor: pointer;
+  }
+
+  header .container-search {
+    position: absolute;
+    top: -92px;
+    left: 0;
+    width: 100%;
+    height: 92px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    transition: 1s;
+    z-index: 9;
+  }
+
+  header .container-search.active {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 92px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    transition: 1s;
+    z-index: 9;
+  }
+
+
+  header #close-search {
+    position: absolute;
+    right: 15px;
+    top: 28%;
+  }
+
+  header #close-search svg:hover path {
+    fill: #c20000;
+  }
+
+  header div#close-search svg {
+    fill: #000;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    .search {
+      max-width: 530px;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .search {
+      max-width: 320px;
+    }
+    .aсtion-search {
+      padding: 12px 6px;
+      width: 38px;
+      height: 25px;
+    }
+
+    .aсtion-search svg {
+      width: 13px;
+      height: 13px;
+      padding: 0;
+    }
+  }
+  @media (max-width: 370px) {
+    .search {
+      max-width: 230px;
+    }
+  }
+</style>
+
+<!-- JS -->
+<script>
+  $(document).ready(function() {
+    $('#aсtion-search').on('click', function() {
+      $('.container-search').addClass('active');
+    });
+
+    $('#close-search').on('click', function() {
+      $('.container-search').removeClass('active');
+    });
+  });
+</script>

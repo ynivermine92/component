@@ -1,0 +1,24 @@
+catalog\controller\product\category.php
+
+найти $filter_data = array(
+
+	$filter_data = array(
+				'filter_category_id' => $category_id, ( как тут)
+				'filter_sub_category' => true,
+				'filter_filter'      => $filter,
+				'sort'               => $sort,
+				'order'              => $order,
+				'start'              => ($page - 1) * $limit,
+				'limit'              => $limit
+			);
+
+
+написать иму  	'filter_sub_category' => true,
+
+
+
+
+админке  категории создать   каталог  
+ редеактировоть категории какие нужно и в  даные добавить   каталог
+
+дальше дизайн макетах выставить мудуль ету категориию  Калог каторый я создавал  начале  

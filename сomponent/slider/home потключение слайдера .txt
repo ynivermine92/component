@@ -1,0 +1,166 @@
+
+прописать модуль 
+$this->document->addStyle('catalog/view/javascript/swiper/swiper-bundle.min.css');
+$this->document->addScript('catalog/view/javascript/swiper/swiper-bundle.min.js');
+
+
+
+
+в тпл 
+
+
+<section class="benefit-slider"> 
+  <div class="swiper" <?php echo $module; ?>>
+    <div class="swiper-wrapper">
+      <?php foreach ($banners as $banner) { ?>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<section class="slide-video">
+  <div class="container">
+    <div class="title slide-video__title"><?php echo $heading_title; ?></div>
+    <div class="swiper swiper <?php echo $module; ?>">
+
+      <div class="swiper-wrapper">
+        <?php if ($module_video) { ?>
+          <?php foreach ($module_video as $item) { ?>
+            <div class="swiper-slide">
+              <div class="item-video-slide">
+                <div class="video-item">
+                  <a href="<?php echo $item['url']; ?>" class="fancy-video" data-rel="media">
+                    <?php if ($item['image'] != '') { ?>
+                      <img src="<?php echo $item['image']; ?>">
+                      <div class="play"><img src="/image/template/ico-play.png"></div>
+                    <?php } ?>
+                  </a>
+                </div>
+                <div class="title-video"><?php echo $item['title']; ?></div>
+              </div>
+            <?php } ?>
+            </div>
+          <?php } ?>
+      </div>
+    </div>
+  </div>
+
+  <?php if ($css != '') { ?>
+    <style>
+      <?php echo $css; ?>
+    </style>
+  <?php } ?>
+
+  </section>
+
+
+  
+
+
+
+<!--   <?php foreach ($banners as $banner) { ?>
+    <div class="swiper-slide">
+      <?php if ($banner['link']) { ?>
+        <a href="<?php echo $banner['link']; ?>">
+          <img class="benefit__images img-responsive" src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>" />
+        </a>
+      <?php } else { ?>
+        <img class="benefit__images img-responsive" src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>" />
+      <?php } ?>
+    </div>
+  <?php } ?>
+
+
+ -->
+
+
+  <style>
+    .slide-video__title {
+      margin-top: 122px;
+      margin-bottom: 54px;
+      margin-top: 122px;
+      color: #121212;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .video-item {
+      position: relative;
+      display: flex;
+    }
+
+    .play {
+      display: flex;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-item a {
+      position: relative;
+    }
+
+    @media(min-width: 1280px) {
+      .title-section {
+        font-size: 64px;
+        line-height: 24px;
+        margin-bottom: 54px;
+      }
+    }
+  </style>
+
+
+
+<script>
+    $('.fancy-video').fancybox({
+      openEffect: 'none',
+      closeEffect: 'none',
+      helpers: {
+        media: {}
+      }
+    });
+  </script>
+
+<script>
+  let swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    grid: {
+      rows: 2,
+    },
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        grid: {
+          rows: 3,
+        },
+      },
+      1350: {
+        slidesPerView: 3,
+        spaceBetween: 0,
+        grid: {
+          rows: 2,
+        },
+      }
+    }
+
+  });
+</script>
+
+
+
+
+

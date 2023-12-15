@@ -1,0 +1,100 @@
+<seciotn class="languages">
+  <?php if (count($languages) > 1) { ?>
+    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-language">
+      <div class="btn-group">
+        <div class="dropdown languages__dropdown">
+          <button class="btn-link dropdown-toggle  languages__btn" data-toggle="dropdown">
+            <?php foreach ($languages as $language) { ?>
+              <?php if ($language['code'] == $code) { ?>
+                <?php echo $language['name']; ?>
+              <?php } ?>
+            <?php } ?>
+            <svg class="languages__arrow">
+              <use xlink:href="image/header/arrow.svg#arrow"></use>
+            </svg>
+          </button>
+
+          <div class="dropdown-menu languages__menu">
+            <div class="dropdown-inner languages__inner">
+              <ul class="list-unstyled languages__items">
+                <?php foreach ($languages as $language) { ?>
+                  <li class="languages__item"><a class=" language-select btn-link btn-block language-item__link" name="<?php echo $language['code']; ?>"><?php echo $language['name']; ?></a></li>
+                <?php } ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" name="code" value="" />
+      <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
+    </form>
+  <?php } ?>
+</seciotn>
+
+
+    
+<style>
+  .languages__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background: #C20000 !important;
+    width: 70px;
+    height: 46px;
+    font-size: 20px;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .languages__arrow {
+    fill: #fff;
+    height: auto;
+    transition: all 0.3s;
+  }
+
+
+  .languages__dropdown.open .languages__arrow {
+    transform: rotate(180deg);
+    transition: all 0.3s;
+  }
+
+  .languages__menu {
+    border-radius: 10px;
+    transition: all 0.5s;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border: 0;
+    background-clip: unset;
+    overflow: hidden;
+    min-width: auto;
+    width: 70px;
+  }
+
+  .languages__items {
+    border-radius: 10px;
+  }
+
+  .languages__item {
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 20px;
+    transition: all 0.3s;
+  }
+
+  .languages__item:hover {
+    background: #C20000;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #fff;
+  }
+
+  .languages__item:hover .language-item__link {
+    color: #fff;
+  }
+
+  .language-item__link {
+    color: #C20000;
+  }
+</style>

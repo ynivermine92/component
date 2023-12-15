@@ -1,0 +1,4 @@
+ [id*="product__input-option"]{
+  display: flex;
+  margin-bottom: 40px;
+} 

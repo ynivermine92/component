@@ -1,0 +1,11 @@
+
+
+скинуть папку javascript 
+
+потклюить хедер силки 
+    <link href="catalog/view/javascript/custom-select/custom-select.css" rel="stylesheet">
+    <script src="catalog/view/javascript/custom-select/custom-select.min.js"></script>
+
+и закинуть категории  стили 
+			и инстализацию 
+

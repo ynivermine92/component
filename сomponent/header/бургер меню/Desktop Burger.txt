@@ -1,0 +1,173 @@
+﻿закидывать после навигация контейнера
+ у бурегар цвет белый 
+
+
+<button class="header__burger-btn" href="javascript:void(0);">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="19" viewBox="0 0 24 19" fill="none">
+    <path d="M1 1H22.9979" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M1 9.55475H22.9979" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M1 18.1095H22.9979" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</button>
+
+<div class="header__burger-menu-wrap">
+  <div class="header__burger-menu">
+    <div class="header__burger-close-wrap">
+      <a class="header__burger-close" href="javascript:void(0);">
+        <svg data-v-00947247="" data-v-1d149268="" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16">
+          <path data-v-00947247="" d="M1 0.15147L0.151472 1L7.08182 7.93035L0.151472 14.8607L1 15.7092L7.93035 8.77888L14.8607 15.7092L15.7092 14.8607L8.77888 7.93035L15.7092 0.999998L14.8607 0.15147L7.93035 7.08182L1 0.15147Z"></path>
+        </svg>
+      </a>
+    </div>
+    <ul class="header__burger-menu-list">
+      <li class="header__burger-menu-item">
+        <a class="header__burger-menu-link" href="javascript:void(0);">Страница 1</a>
+      </li>
+      <li class="header__burger-menu-item">
+        <a class="header__burger-menu-link" href="javascript:void(0);">Страница 2</a>
+      </li>
+      <li class="header__burger-menu-item">
+        <a class="header__burger-menu-link" href="javascript:void(0);">Страница 3</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #21313f;
+  }
+  
+  .lock body {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+  
+  button {
+    position: relative;
+    top: 20px;
+    right: 20px;
+    margin-left: auto;
+    display: block;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .header__burger-menu.active {
+    transform: translateX(0);
+    position: unset;
+  }
+  
+  .header__burger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
+    background-color: #e8e6e3;
+    display: flex;
+    flex-flow: column;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    overflow: auto;
+    z-index: 110;
+  }
+  
+  .header__burger-menu-list {
+    margin: 37px 16px 50px;
+  }
+  
+  .header__burger-menu-item {
+    margin-top: 22px;
+    padding: 0 16px;
+  }
+  
+  .header__burger-close-wrap {
+    margin-left: auto;
+  }
+  
+  .header__burger-close {
+    width: 46px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header__burger-menu-link {
+    color: #21313f;
+    font-size: 18px;
+  }
+  
+  .header__burger-menu-wrap.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000000b8;
+    display: block;
+    z-index: 110;
+  }
+  
+  .header__item-link {
+    margin: auto 16px 60px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    color: #21313f;
+    font-size: 18px;
+  }
+  
+  ul li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+  }
+  
+  a:hover {
+    color: #a3c942;
+    // text-decoration: underline;
+  }
+</style>
+
+<script>
+  const burgerBtn = document.querySelector(".header__burger-btn");
+  const burgerMenu = document.querySelector(".header__burger-menu");
+  const burgerClose = document.querySelector(".header__burger-close");
+  const burgerMenuWrap = document.querySelector(".header__burger-menu-wrap");
+  const html = document.querySelector("html");
+  
+  burgerBtn.addEventListener("click", () => {
+    burgerMenu.classList.add("active");
+    burgerMenuWrap.classList.add("active");
+    html.classList.add("lock");
+  });
+  
+  burgerClose.addEventListener("click", () => {
+    burgerMenuWrap.classList.remove("active");
+    burgerMenu.classList.remove("active");
+    html.classList.remove("lock");
+  });
+  
+  html.addEventListener("click", function (e) {
+    if (e.target.matches(".header__burger-menu-wrap.active")) {
+      document
+        .querySelectorAll(".header__burger-menu-wrap, .header__burger-menu")
+        .forEach(function (el) {
+          el.classList.remove("active");
+        });
+  
+      html.classList.remove("lock");
+    }
+  });
+</script>

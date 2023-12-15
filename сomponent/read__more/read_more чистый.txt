@@ -1,0 +1,121 @@
+
+
+
+
+
+
+
+
+
+
+<section class="read-more">
+  <div class="read-more__container">
+    <div class="read-more__header">
+      <h2 class="read-more__title">Читать дальше</h2>
+    </div>
+    <div class="read-more__body">
+      <div class="read-more__item">
+        <h3 class="read-more__name">JavaScript</h3>
+        <p class="read-more__text">Нам ещё многое предстоит изучить про браузерные скрипты и их взаимодействие со
+          страницей. Но, как уже было сказано, эта часть учебника посвящена именно языку JavaScript, поэтому здесь мы
+          постараемся не отвлекаться на детали реализации в браузере. Мы воспользуемся браузером для запуска JavaScript,
+          это удобно для онлайн-демонстраций, но это только одна из платформ, на которых работает этот язык. Нам ещё
+          многое предстоит изучить про браузерные скрипты и их взаимодействие со страницей. Но, как уже было сказано,
+          эта часть учебника посвящена именно языку JavaScript, поэтому здесь мы постараемся не отвлекаться на детали
+          реализации в браузере. Мы воспользуемся браузером для запуска JavaScript, это удобно для онлайн-демонстраций,
+          но это только одна из платформ, на которых работает этот язык. Нам ещё многое предстоит изучить про браузерные
+          скрипты и их взаимодействие со страницей.</p>
+        <p class="read-more__btn">Читать дальше</p>
+      </div>
+      <div class="read-more__item">
+        <h3 class="read-more__name">JavaScript</h3>
+        <p class="read-more__text">Нам ещё многое предстоит изучить про браузерные скрипты и их взаимодействие со
+          страницей. Но, как уже было сказано, эта часть учебника посвящена именно языку JavaScript, поэтому здесь мы
+          постараемся не отвлекаться на детали реализации в браузере. Мы воспользуемся браузером для запуска JavaScript,
+          это удобно для онлайн-демонстраций, но это только одна из платформ, на которых работает этот язык. Нам ещё
+          многое предстоит изучить про браузерные скрипты и их взаимодействие со страницей. Но, как уже было сказано,
+          эта часть учебника посвящена именно языку JavaScript, поэтому здесь мы постараемся не отвлекаться на детали
+          реализации в браузере. Мы воспользуемся браузером для запуска JavaScript, это удобно для онлайн-демонстраций,
+          но это только одна из платформ, на которых работает этот язык. Нам ещё многое предстоит изучить про браузерные
+          скрипты и их взаимодействие со страницей.</p>
+        <p class="read-more__btn">Читать дальше</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* redMore */
+.read-more__name {
+  font-family: bold;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.read-more__text {
+  position: relative;
+  max-height: 105px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: #3A3A3A;
+  font-family: Manrope;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.read-more__text::after {
+  content: "";
+  height: 100px;
+  width: 100%;
+  background-image: linear-gradient(
+    to top,
+    white 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.read-more__text.active::after {
+  content: none;
+}
+.read-more__btn {
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  background: #d9d9d9;
+  color: #000;
+  font-size: 16px;
+  padding: 17px 135px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.read-more__btn.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+</style>
+
+/* redMore *
+<script>
+  const btns = document.querySelectorAll(".read-more__btn");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", function() {
+      btn.classList.toggle("active") ?
+        (btn.textContent = "Скрыть") :
+        (btn.textContent = "Більше");
+
+      const content = this.previousElementSibling;
+      content.classList.toggle("active");
+      content.style.maxHeight ?
+        (content.style.maxHeight = null) :
+        (content.style.maxHeight = content.scrollHeight + "px");
+    });
+  });
+</script>
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+<section class="languages">
+  <?php if (count($languages) > 1) { ?>
+    <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-language">
+      <div class="btn-group">
+        <div class="dropdown languages__dropdown">
+          <button class="btn-link dropdown-toggle  languages__btn button-btn" data-toggle="dropdown">
+            <?php foreach ($languages as $language) { ?>
+              <?php if ($language['code'] == $code) { ?>
+                <?php echo $language['name']; ?>
+              <?php } ?>
+            <?php } ?>
+            <svg class="languages__arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
+              <path d="M4.99998 5.9166C4.88502 5.91715 4.77111 5.89472 4.66493 5.85065C4.55874 5.80657 4.46244 5.74174 4.38165 5.65994L0.333317 1.5766C0.226695 1.41215 0.17837 1.21667 0.196089 1.02148C0.213808 0.826294 0.296544 0.642707 0.431037 0.500144C0.565529 0.357582 0.74399 0.264301 0.937815 0.235252C1.13164 0.206203 1.32961 0.243068 1.49998 0.339938L4.99998 3.83994L8.49998 0.339938C8.67036 0.243068 8.86833 0.206203 9.06215 0.235252C9.25598 0.264301 9.43444 0.357582 9.56893 0.500144C9.70342 0.642707 9.78616 0.826294 9.80388 1.02148C9.8216 1.21667 9.77327 1.41215 9.66665 1.5766L5.58332 5.65994C5.42872 5.81676 5.22005 5.90858 4.99998 5.9166Z" fill="white" />
+            </svg>
+          </button>
+          <div class="dropdown-menu languages__menu">
+            <div class="dropdown-inner languages__inner">
+              <ul class="list-unstyled languages__items">
+                <?php foreach ($languages as $language) { ?>
+                  <li class="languages__item"><a class=" language-select btn-link  language-item__link" name="<?php echo $language['code']; ?>"><?php echo $language['name']; ?></a></li>
+                <?php } ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" name="code" value="" />
+      <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
+    </form>
+  <?php } ?>
+
+  <style>
+    .languages__btn {
+      margin-right: 30px;
+      position: relative;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      background: #C20000;
+      width: 70px;
+      height: 46px;
+      font-size: 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .languages__arrow {
+      fill: #fff;
+      transition: all 0.3s;
+      width: 9.615px;
+      height: 5.691px;
+      margin-left: 8px;
+    }
+
+    .languages__dropdown.open .languages__arrow {
+      transform: rotate(180deg);
+      transition: all 0.3s;
+    }
+
+    .languages__menu {
+      margin-top: 10px !important;
+      border-radius: 10px;
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 0;
+      background-clip: none;
+      overflow: hidden;
+      min-width: auto;
+      width: 70px;
+      user-select: none;
+    }
+
+    .languages__items {
+      border-radius: 10px;
+    }
+
+    .languages__item {
+      text-align: center;
+      padding: 15px;
+      font-size: 20px;
+      transition: all 0.3s;
+    }
+
+    .languages__item:hover {
+      background: #C20000;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: #fff;
+    }
+
+    .languages__item:hover .language-item__link {
+      color: #fff;
+    }
+
+    .language-item__link {
+      color: #C20000;
+    }
+
+    @media (max-width: 650px) {
+      .language-item__link {
+        font-size: 12px;
+      }
+
+      .languages__btn {
+        width: 13px;
+        height: 13px;
+        font-size: 12px;
+        justify-content: start;
+      }
+
+      .languages__arrow {
+        position: absolute;
+        right: 15%;
+        width: 5.224px;
+        height: 3.092px;
+      }
+
+      .languages__item {
+        padding: 5px;
+        font-size: 12px;
+      }
+
+      .languages__menu {
+        width: 37px;
+      }
+    }
+  </style>
+</section>

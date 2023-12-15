@@ -1,0 +1,39 @@
+admin/cotroller/extension/module/ нахожу каком модуле нужно убрать фиксируваную ширену и высоту с админки 
+
+коментирую 
+   /* if (!$this->request->post['width']) {
+			$this->error['width'] = $this->language->get('error_width');
+		}
+
+		if (!$this->request->post['height']) {
+			$this->error['height'] = $this->language->get('error_height');
+		} */
+
+дальше нужно убрать ошибку 
+
+catalog\controller\extension\module\slideshow.php
+	
+фор идже меняю строку с картинкой 
+
+		foreach ($results as $result) {
+			if (is_file(DIR_IMAGE . $result['image'])) {
+				$data['banners'][] = array(
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => 'image/'resize($result['image'])
+					
+				);
+			}
+		}
+
+
+на
+	foreach ($results as $result) {
+			if (is_file(DIR_IMAGE . $result['image'])) {
+				$data['banners'][] = array(
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => 'image/'.$result['image']
+				);
+			}
+		}

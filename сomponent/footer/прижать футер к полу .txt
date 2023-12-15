@@ -1,0 +1,14 @@
+.wrapper {
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+
+
+
+footer {
+  flex: 1 1 auto;
+}

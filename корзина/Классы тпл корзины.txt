@@ -1,0 +1,120 @@
+<div id="cart" class="cart">
+    <button id="cart-page" type="button" class="cart__btn btn-group btn-block">
+
+        <span class="user-nav__cart-number" id="cart-total"><?php echo $text_items; ?></span>
+    </button>
+    <div class="cart-btn__sum">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M22.719 4.07808C22.4377 3.74043 22.0854 3.46887 21.6873 3.28269C21.2892 3.0965 20.8549 3.00026 20.4154 3.0008H4.24312L4.20111 2.6497C4.11514 1.91993 3.76438 1.24706 3.21534 0.758679C2.6663 0.270295 1.95715 0.000341884 1.22232 0L1.00027 0C0.734978 0 0.480557 0.105385 0.292971 0.292971C0.105385 0.480557 0 0.734978 0 1.00027C0 1.26555 0.105385 1.51997 0.292971 1.70756C0.480557 1.89515 0.734978 2.00053 1.00027 2.00053H1.22232C1.46732 2.00056 1.70379 2.09051 1.88687 2.25331C2.06996 2.41612 2.18692 2.64045 2.21559 2.88376L3.59195 14.5869C3.73484 15.804 4.31962 16.9263 5.2353 17.7407C6.15097 18.5552 7.3338 19.0051 8.55927 19.005H19.005C19.2703 19.005 19.5247 18.8997 19.7123 18.7121C19.8999 18.5245 20.0053 18.2701 20.0053 18.0048C20.0053 17.7395 19.8999 17.4851 19.7123 17.2975C19.5247 17.1099 19.2703 17.0045 19.005 17.0045H8.55927C7.94016 17.0028 7.33674 16.8096 6.83175 16.4514C6.32675 16.0933 5.94489 15.5877 5.73852 15.004H17.6617C18.8343 15.0041 19.9696 14.5921 20.8694 13.8401C21.7691 13.0881 22.376 12.0439 22.584 10.8899L23.3692 6.53473C23.4476 6.10262 23.43 5.65857 23.3176 5.23403C23.2052 4.80948 23.0009 4.41485 22.719 4.07808ZM21.4057 6.17964L20.6195 10.5348C20.4946 11.228 20.1298 11.8551 19.5891 12.3065C19.0483 12.7578 18.366 13.0045 17.6617 13.0034H5.42044L4.47919 5.00133H20.4154C20.5623 5.00045 20.7077 5.03196 20.8411 5.09361C20.9744 5.15526 21.0926 5.24554 21.1871 5.35803C21.2817 5.47052 21.3503 5.60246 21.388 5.74446C21.4258 5.88646 21.4318 6.03504 21.4057 6.17964Z"
+                fill="white" />
+            <path
+                d="M7.00187 24.0066C8.10673 24.0066 9.0024 23.1109 9.0024 22.006C9.0024 20.9012 8.10673 20.0055 7.00187 20.0055C5.89701 20.0055 5.00134 20.9012 5.00134 22.006C5.00134 23.1109 5.89701 24.0066 7.00187 24.0066Z"
+                fill="white" />
+            <path
+                d="M17.0044 24.0066C18.1093 24.0066 19.005 23.1109 19.005 22.006C19.005 20.9012 18.1093 20.0055 17.0044 20.0055C15.8996 20.0055 15.0039 20.9012 15.0039 22.006C15.0039 23.1109 15.8996 24.0066 17.0044 24.0066Z"
+                fill="white" />
+        </svg>
+    </div>
+
+    <ul class="dropdown-menu pull-right">
+        <?php if ($products || $vouchers) { ?>
+        <li>
+            <table class="table table-striped">
+                <?php foreach ($products as $product) { ?>
+                <tr>
+                    <td class="text-center"><?php if ($product['thumb']) { ?>
+                        <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>"
+                                alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"
+                                class="img-thumbnail" /></a>
+                        <?php } ?>
+                    </td>
+                    <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                        <?php if ($product['option']) { ?>
+                        <?php foreach ($product['option'] as $option) { ?>
+                        <br />
+                        - <small><?php echo $option['name']; ?> <?php echo $option['value']; ?></small>
+                        <?php } ?>
+                        <?php } ?>
+                        <?php if ($product['recurring']) { ?>
+                        <br />
+                        - <small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
+                        <?php } ?>
+                    </td>
+                    <td class="text-right">x <?php echo $product['quantity']; ?></td>
+                    <td class="text-right"><?php echo $product['total']; ?></td>
+                    <td class="text-center"><button type="button"
+                            onclick="cart.remove('<?php echo $product['cart_id']; ?>');"
+                            title="<?php echo $button_remove; ?>" class="btn btn-danger btn-xs"><i
+                                class="fa fa-times"></i></button></td>
+                </tr>
+                <?php } ?>
+                <?php foreach ($vouchers as $voucher) { ?>
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="text-left"><?php echo $voucher['description']; ?></td>
+                    <td class="text-right">x&nbsp;1</td>
+                    <td class="text-right"><?php echo $voucher['amount']; ?></td>
+                    <td class="text-center text-danger"><button type="button"
+                            onclick="voucher.remove('<?php echo $voucher['key']; ?>');"
+                            title="<?php echo $button_remove; ?>" class="btn btn-danger btn-xs"><i
+                                class="fa fa-times"></i></button></td>
+                </tr>
+                <?php } ?>
+            </table>
+        </li>
+        <li>
+            <div>
+                <table class="table table-bordered">
+                    <?php foreach ($totals as $total) { ?>
+                    <tr>
+                        <td class="text-right"><strong><?php echo $total['title']; ?></strong></td>
+                        <td class="text-right"><?php echo $total['text']; ?></td>
+                    </tr>
+                    <?php } ?>
+                </table>
+                <p class="text-right"><a href="<?php echo $cart; ?>"><strong><i class="fa fa-shopping-cart"></i>
+                            <?php echo $text_cart; ?></strong></a>&nbsp;&nbsp;&nbsp;<a
+                        href="<?php echo $checkout; ?>"><strong><i class="fa fa-share"></i>
+                            <?php echo $text_checkout; ?></strong></a></p>
+            </div>
+        </li>
+        <?php } else { ?>
+        <li>
+            <p class="text-center"><?php echo $text_empty; ?></p>
+        </li>
+        <?php } ?>
+    </ul>
+</div>
+
+
+<style>
+.cart-btn__sum{
+    cursor: pointer;
+}
+.user-nav__cart-number {
+    color: #000;
+    text-align: center;
+    font-family: 'Manrope';
+    font-size: 8px;
+    font-weight: 400;
+}
+
+.cart-total {
+    display: flex;
+}
+
+#cart .btn-block {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    top: -4px;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 400;
+}
+</style>

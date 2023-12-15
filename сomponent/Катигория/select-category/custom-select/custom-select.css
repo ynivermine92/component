@@ -1,0 +1,80 @@
+.custom-select-container {
+  position: relative;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.custom-select-container * {
+  box-sizing: border-box;
+}
+.custom-select-container.is-disabled {
+  opacity: .333;
+}
+.custom-select-opener {
+  background-color: transparent;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  color: #979491;
+  font-size: 12px;
+  line-height: 20px;
+}
+.custom-select-container select {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.custom-select-panel {
+  max-height: 0;
+  transition: max-height .2s ease-out, overflow-y 0.1s 0.1s;
+  overflow: hidden;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 1;
+  width: 100%;
+  -webkit-transition: max-height .2s ease-out, overflow-y 0.1s 0.1s;
+  -moz-transition: max-height .2s ease-out, overflow-y 0.1s 0.1s;
+  -ms-transition: max-height .2s ease-out, overflow-y 0.1s 0.1s;
+  -o-transition: max-height .2s ease-out, overflow-y 0.1s 0.1s;
+}
+.custom-select-container.is-open .custom-select-panel {
+  height: 90px;
+  max-height: 1000px;
+  overflow-y: auto
+}
+.custom-select-option {
+  padding: 5px;
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+}
+.custom-select-option.has-focus {
+  background-color: rgb(228, 229, 230);
+}
+.custom-select-option.is-selected::before {
+  content: "вњ”";
+  padding-right: 0.5em;
+  font-size: 10px;
+}
+.custom-select-optgroup > .custom-select-option {
+  padding-left: 2em;
+}
+.custom-select-optgroup::before {
+  content: attr(data-label);
+  display: block;
+  padding: 0.5em;
+  color: #888;
+}
+
+span.number{ color: #F2F2F2; font-size: 128px; font-style: normal; font-weight: 800; line-height: 1; position: absolute; left: 0; top: -40%; transform:translateY(40%) ; -webkit-transform:translateY(40%) ; -moz-transform:translateY(40%) ; -ms-transform:translateY(40%) ; -o-transform:translateY(40%) ;
+}
+.template_wrapper{
+    padding-bottom: 80px;
+}
+@media (max-width: 768px) {
+    .custom-select-container.is-open .custom-select-panel {
+        height: 85px;
+    }
+}

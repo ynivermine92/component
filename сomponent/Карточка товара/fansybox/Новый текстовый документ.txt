@@ -1,0 +1,12 @@
+
+1 модуль потключаю стили , и жс   
+$this->document->addStyle('https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
+$this->document->addScript('https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js');
+2 инстализирую силку 
+ <a data-fancybox="gallery" href="<?php echo $image['popup']; ?>"><img class="package__image" src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" /></a>
+
+тпл потключаем ещё инстализацию 
+
+  Fancybox.bind('[data-fancybox="gallery"]',
+  {
+  });

@@ -1,0 +1,371 @@
+                        <div class="product_adaptive">
+                            <div class="product_images">
+                                <div class="products_gallery">
+                                    <div class="swiper JS-swiper-product2 gallery-images">
+                                        <?php if ($thumb || $images) { ?>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide gallery-image-item">
+                                                <a data-fancybox="product" class="thumbnail"
+                                                    href="<?php echo $popup; ?>"><img src="<?php echo $thumb; ?>"
+                                                        alt="<?php echo $heading_title; ?>" /></a>
+                                            </div>
+                                            <?php if ($images) { ?>
+                                            <?php foreach ($images as $image) { ?>
+                                            <div class="swiper-slide gallery-image-item">
+                                                <a data-fancybox="product" data-rel="media" class="thumbnail video"
+                                                    href="<?php echo $image['popup']; ?>"> <img
+                                                        src="<?php echo $image['thumb']; ?>"
+                                                        alt="<?php echo $heading_title; ?>" /></a>
+                                            </div>
+                                            <?php } ?>
+                                            <?php } ?>
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="swiper-product-thumbs">
+                                        <div thumbsSlider="" class="swiper JS-swiper-product gallery-thumbs">
+                                            <?php if ($thumb || $images) { ?>
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide gallery-image-item">
+                                                    <img src="<?php echo $thumb; ?>"
+                                                        alt="<?php echo $heading_title; ?>" />
+                                                </div>
+                                                <?php if ($images) { ?>
+                                                <?php foreach ($images as $image) { ?>
+                                                <div class="swiper-slide gallery-image-item">
+                                                    <img src="<?php echo $image['thumb']; ?>"
+                                                        alt="<?php echo $heading_title; ?>" />
+                                                </div>
+                                                <?php } ?>
+                                                <?php } ?>
+                                            </div>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="swiper-button-next-product">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="26"
+                                                viewBox="0 0 52 26" fill="none">
+                                                <path
+                                                    d="M50 2L29.5355 22.4645C27.5829 24.4171 24.4171 24.4171 22.4645 22.4645L2 2"
+                                                    stroke="#C20000" stroke-width="3" />
+                                            </svg>
+                                        </div>
+                                        <div class="swiper-button-prev-product">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="26"
+                                                viewBox="0 0 52 26" fill="none">
+                                                <path
+                                                    d="M2 24L22.4645 3.53553C24.4171 1.58291 27.5829 1.58291 29.5355 3.53553L50 24"
+                                                    stroke="#C20000" stroke-width="3" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+<style>
+.product .title {
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+}
+
+
+
+.swiper.JS-swiper-product2 {
+    margin: 0;
+}
+
+.JS-swiper-product .swiper-slide {
+    width: 120px;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 2px solid #E6E6E6;
+}
+
+.thumbnail {
+    border: none;
+}
+
+.JS-swiper-product .swiper-slide:hover {
+    border-radius: 8px;
+    border: 2px solid #E6E6E6;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.JS-swiper-product .swiper-slide img {
+    margin-top: 10px;
+}
+
+
+
+
+.JS-swiper-product .swiper-slide:hover {
+    border-radius: 8px;
+    border: 2px solid #45BC1B;
+    transition: all 0.5s;
+}
+
+.JS-swiper-product2 {
+    border: 2px solid #E6E6E6;
+    border-radius: 20px;
+    padding: 5px;
+    max-width: 574px;
+    max-height: 504px;
+}
+
+.products_gallery {
+    display: flex;
+}
+
+/* slider main */
+
+
+.JS-swiper-product2 .swiper-slide img,
+.JS-swiper-product .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    margin-top: 20px;
+}
+
+
+
+
+.swiper-slide.swiper-slide-thumb-active {
+    border-radius: 8px;
+    border: 2px solid #45BC1B;
+}
+
+
+.swiper-product-thumbs {
+    margin-left: 32px;
+}
+
+
+
+
+.product .swiper-button-next-product,
+.swiper-button-prev-product {
+    display: none;
+}
+
+.JS-swiper-product {
+    position: relative;
+    margin: auto;
+    padding: 0;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    max-height: 500px
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+
+
+.JS-swiper-product .swiper-slide:hover {
+    border-radius: 8px;
+}
+
+
+
+@media (max-width: 1440px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 440px;
+    }
+
+    .JS-swiper-product .swiper-slide {
+        width: 100px;
+    }
+
+    .JS-swiper-product2 .swiper-slide img {
+        max-width: 490px;
+    }
+}
+
+@media (max-width: 1202px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 354px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 442px;
+    }
+}
+
+@media (max-width: 768px) {
+    .JS-swiper-product .swiper-slide {
+        width: 80px;
+    }
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 300px;
+    }
+
+    .JS-swiper-product2 .swiper-slide img {
+        max-width: 370px;
+    }
+
+    .JS-swiper-product2 {
+        max-width: 340px;
+    }
+
+    .products_gallery {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 232px;
+    }
+
+    .JS-swiper-product2 {
+        width: 270px;
+    }
+
+    .JS-swiper-product .swiper-slide {
+        width: 65px;
+        height: 64px !important;
+    }
+
+    .swiper-product-thumbs {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .thumbnail {
+        margin-top: 2px !important;
+    }
+}
+
+@media (max-width: 389px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 170px;
+    }
+
+    .JS-swiper-product2 .swiper-slide img {
+        max-width: 180px;
+    }
+
+
+}
+
+@media (max-width: 330px) {
+
+    .JS-swiper-product2,
+    .JS-swiper-product {
+        max-height: 160px;
+
+    }
+
+    .JS-swiper-product2 .swiper-slide img {
+        max-width: 170px;
+    }
+
+    .JS-swiper-product2 {
+        width: 190px;
+    }
+}
+</style>
+
+
+
+
+<script>
+let swiper = new Swiper(".JS-swiper-product", {
+    direction: 'vertical',
+    watchSlidesProgress: true,
+    freeMode: true,
+    slidesPerView: 4,
+    spaceBetween: 10,
+    breakpoints: {
+        0: {
+            slidesPerView: 2.5,
+            spaceBetween: 10,
+        },
+        390: {
+            slidesPerView: 2,
+        },
+
+        410: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        },
+
+
+        768: {
+            slidesPerView: 4,
+        },
+        990: {
+            slidesPerView: 3,
+        },
+
+        1202: {
+            slidesPerView: 4,
+        },
+
+    },
+
+});
+
+let swiper2 = new Swiper(".JS-swiper-product2", {
+    direction: 'vertical',
+    autoplay: {
+        delay: 5000,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next-product",
+        prevEl: ".swiper-button-prev-product",
+    },
+
+    thumbs: {
+        swiper: swiper,
+    },
+
+    breakpoints: {
+        0: {
+            spaceBetween: 70,
+        },
+
+        768: {
+            spaceBetween: 50,
+        }
+    },
+});
+
+</script>
+
+
+
+.swiper-slide.swiper-slide-thumb-active, .JS-swiper-product .swiper-slide {
+    border-radius: 8px;
+    min-height: 130px;
+}
+.swiper-slide.swiper-slide-thumb-active{
+    border: 2px solid #45BC1B;
+}
+

@@ -1,0 +1,24 @@
+catalog\controller\information\contact.php
+
+	
+			if ($location_info) {
+				if ($location_info['image']) {
+					 $image = $this->model_tool_image->resize($location_info['image'], $this->config->get($this->config->get('config_theme') . '_image_location_width'), $this->config->get($this->config->get('config_theme') . '_image_location_height')); 
+
+				} else {
+					$image = false;
+				}
+было
+
+
+должно стать 
+
+
+
+			if ($location_info) {
+				if ($location_info['image']) {
+					/*  $image = $this->model_tool_image->resize($location_info['image'], $this->config->get($this->config->get('config_theme') . '_image_location_width'), $this->config->get($this->config->get('config_theme') . '_image_location_height'));  */
+					$image = 'image/' . $location_info['image'];
+				} else {
+					$image = false;
+				}

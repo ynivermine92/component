@@ -1,0 +1,11 @@
+      <?php if ($logged) { ?>
+        <a class="mobile-menu__item-link"  href="<?php echo $account; ?>"><?php echo $text_account; ?>
+       <svg class="user-nav__link-img">
+            <use xlink:href="image/header/user.svg#user"></use>
+          </svg>
+      </a>
+      <?php } else { ?>
+        <a class="mobile-menu__item-link modal_login" href="<?php echo $login; ?>" class="modal_login"><?php echo $text_account; ?><svg class="user-nav__link-img">
+            <use xlink:href="image/header/user.svg#user"></use>
+          </svg></a>
+      <?php } ?>
